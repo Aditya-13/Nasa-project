@@ -4,10 +4,14 @@ const {
   connectToMongo,
   mongoDisconnect,
 } = require('../../services/mongo');
+const {
+  parseCsv
+} = require('../../models/planets.model')
 
 describe('Launches API', () => {
   beforeAll(async () => {
     await connectToMongo();
+    await parseCsv();
   });
 
   afterAll(async () => {
